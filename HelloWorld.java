@@ -13,4 +13,9 @@ class Student {
     public String name;
     public int age;
     public boolean isAlive;
+
+
+    public String toString() {
+        return this.name + ", " + this.age + ", " + this.isAlive;
+    }
 }
