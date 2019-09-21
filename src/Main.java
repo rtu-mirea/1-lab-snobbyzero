@@ -21,11 +21,10 @@ public class Main {
                             "8. Выход из программы\n"
             );
             System.out.println("Введите номер операции: ");
-            try {
                 Scanner sc = new Scanner(System.in);
                 operationNumber = sc.nextInt();
-                if (operationNumber < 1 || operationNumber > 7) {
-                    throw new InputMismatchException();
+                if (operationNumber < 1 || operationNumber > 8)
+                {
                 }
                 else {
                     switch (operationNumber) {
@@ -52,27 +51,15 @@ public class Main {
                             arr.change_size(len);
                     }
                 }
-            }
-            catch (InputMismatchException ime) {
-                System.out.println("Неверный ввод. Введите число от 1 до 7.");
-            }
-        } while(operationNumber != 8);
+            } while(operationNumber != 8);
     }
 
     private static int input_length() {
         do {
             System.out.println("Введите длину массива: ");
-            try {
-                Scanner sc = new Scanner(System.in);
-                len = sc.nextInt();
-                if (len <= 0)
-                    throw new InputMismatchException();
-            }
-            catch (InputMismatchException ime) {
-                System.out.println("Неверный ввод. Введите число больше нуля!");
-            }
+            Scanner sc = new Scanner(System.in);
+            len = sc.nextInt();
         } while (len <= 0);
         return len;
     }
 }
-
