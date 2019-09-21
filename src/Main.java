@@ -6,18 +6,7 @@ public class Main {
     private static int len;
     public static void main(String[] args) {
 
-        do {
-            System.out.println("Введите длину массива: ");
-            try {
-                Scanner sc = new Scanner(System.in);
-                len = sc.nextInt();
-                if (len <= 0)
-                    throw new InputMismatchException();
-            }
-            catch (InputMismatchException ime) {
-                System.out.println("Неверный ввод. Введите число больше нуля!");
-            }
-        } while (len <= 0);
+        len = input_length();
         Arr arr = new Arr(len);
         int operationNumber = 0;
         do {
@@ -26,9 +15,10 @@ public class Main {
                             "2. Рандомный ввод\n" +
                             "3. Вывод слева направо\n" +
                             "4. Вывод справа налево\n" +
-                            "5. Заменить в двоичном коде значения каждого элемента массив заданный бит на заданное значение\n" +
+                            "5. Заменить в двоичном коде значения каждого элемента массива заданный бит на заданное значение\n" +
                             "6. Выполнить конвертирование массива\n" +
-                            "7. Выход из программы\n"
+                            "7. Изменить длину массива\n" +
+                            "8. Выход из программы\n"
             );
             System.out.println("Введите номер операции: ");
             try {
@@ -57,13 +47,32 @@ public class Main {
                         case (6):
                             arr.convert();
                             break;
-
+                        case (7):
+                            len = input_length();
+                            arr.change_size(len);
                     }
                 }
             }
             catch (InputMismatchException ime) {
                 System.out.println("Неверный ввод. Введите число от 1 до 7.");
             }
-        } while(operationNumber != 7);
+        } while(operationNumber != 8);
+    }
+
+    private static int input_length() {
+        do {
+            System.out.println("Введите длину массива: ");
+            try {
+                Scanner sc = new Scanner(System.in);
+                len = sc.nextInt();
+                if (len <= 0)
+                    throw new InputMismatchException();
+            }
+            catch (InputMismatchException ime) {
+                System.out.println("Неверный ввод. Введите число больше нуля!");
+            }
+        } while (len <= 0);
+        return len;
     }
 }
+
