@@ -3,7 +3,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Arr {
-    private int length;
     private byte[] arr;
 
     // Конструктор, принимающий на вход длину массива
@@ -102,5 +101,11 @@ public class Arr {
             arr[i] = arr[this.arr.length - i - 1];
             arr[this.arr.length - i - 1] = temp;
         }
+    }
+
+    public void change_size(int length) {
+        byte[] temp = new byte[length];
+        System.arraycopy(this.arr, 0, temp, 0, this.arr.length);
+        this.arr = temp;
     }
 }
