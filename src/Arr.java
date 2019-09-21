@@ -56,37 +56,22 @@ public class Arr {
 
     public void change_bit() {
         Scanner sc = new Scanner(System.in);
-        String bit = "";
-        String pos = "";
+        int bit;
+        int pos;
         do {
-            try {
-                System.out.println("Введите номер позиции (от 0 до 7)");
-                pos = sc.next();
-                try {
-                    Integer.parseInt(pos);
-                }
-                catch (Exception e) {
-                    throw new InputMismatchException();
-                }
-            } catch (InputMismatchException ime) {
-                System.out.println("Неверный ввод.");
-            }
-        } while (Integer.parseInt(pos) < 0 || Integer.parseInt(pos) > 7);
+            System.out.println("Введите номер позиции (от 0 до 7): ");
+            pos = sc.nextInt();
+        } while (pos < 0 || pos > 7);
         do {
-            try {
-                System.out.println("Введите 0 или 1: ");
-                bit = sc.next();
-            } catch (InputMismatchException ime) {
-                System.out.println("Неверный ввод.");
-            }
+            System.out.println("Введите бит (0 или 1): ");
+            bit = sc.nextInt();
             System.out.println(bit);
-        } while (!bit.equals("0") && !bit.equals("1"));
-        String[] temp = new String[this.arr.length];
+        } while (bit != 0 && bit != 1);
+        byte[] temp = new byte[this.arr.length];
         for (int i = 0; i < this.arr.length; i++) {
-            int num = 7 - Integer.parseInt(pos);
-            temp[i] = String.format("%8s", Integer.toBinaryString(arr[i] & 0xFF)).replace(' ', '0');
-            temp[i] = temp[i].substring(0, num) + bit + temp[i].substring(num+1);
-            System.out.println(temp[i]);
+            int num = 7 - pos;
+            temp[i] = (byte) (arr[i] | (bit << pos));
+            System.out.println(Integer.toBinaryString(temp[i]));
         }
     }
 
