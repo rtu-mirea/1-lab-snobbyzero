@@ -29,7 +29,7 @@ public class Arr {
     }
 
     // Заполнение массива рандомными значениями
-    public void random_input() {
+    public void randomInput() {
         Random random = new Random();
         random.nextBytes(this.arr);
     }
@@ -42,7 +42,7 @@ public class Arr {
     }
 
     // Печать справа налево
-    public void print_backward() {
+    public void printBackward() {
         for (int i = this.arr.length - 1; i >= 0; i--) {
             System.out.println(this.arr[i]);
         }
@@ -54,7 +54,7 @@ public class Arr {
      * (на 0 или на 1).
      */
 
-    public void change_bit() {
+    public void changeBit() {
         Scanner sc = new Scanner(System.in);
         int bit;
         int pos;
@@ -88,7 +88,7 @@ public class Arr {
         }
     }
 
-    public void change_size(int length) {
+    public void changeSize(int length) {
         byte[] temp = new byte[length];
         System.arraycopy(this.arr, 0, temp, 0, this.arr.length);
         this.arr = temp;
