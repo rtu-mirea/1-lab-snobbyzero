@@ -6,7 +6,7 @@ public class Main {
     private static int len;
     public static void main(String[] args) {
 
-        len = input_length();
+        len = inputLength();
         Arr arr = new Arr(len);
         int operationNumber = 0;
         do {
@@ -32,29 +32,29 @@ public class Main {
                             arr.input();
                             break;
                         case (2):
-                            arr.random_input();
+                            arr.randomInput();
                             break;
                         case (3):
                             arr.print();
                             break;
                         case (4):
-                            arr.print_backward();
+                            arr.printBackward();
                             break;
                         case (5):
-                            arr.change_bit();
+                            arr.changeBit();
                             break;
                         case (6):
                             arr.convert();
                             break;
                         case (7):
-                            len = input_length();
-                            arr.change_size(len);
+                            len = inputLength();
+                            arr.changeSize(len);
                     }
                 }
             } while(operationNumber != 8);
     }
 
-    private static int input_length() {
+    private static int inputLength() {
         do {
             System.out.println("Введите длину массива: ");
             Scanner sc = new Scanner(System.in);
