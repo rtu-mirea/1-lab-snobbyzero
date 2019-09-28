@@ -70,7 +70,7 @@ public class Arr {
         byte[] temp = new byte[this.arr.length];
         for (int i = 0; i < this.arr.length; i++) {
             int num = 7 - pos;
-            temp[i] = (byte) (arr[i] | (bit << pos));
+            temp[i] = (byte) (arr[i] ^ (bit << pos));
             System.out.println(Integer.toBinaryString(temp[i]));
         }
     }
